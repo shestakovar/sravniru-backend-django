@@ -53,6 +53,9 @@ class Organization(models.Model):
     license = models.CharField(max_length=255)
     logo = models.URLField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class CustomerRequirement(models.Model):
     documents = models.IntegerField()
@@ -62,6 +65,9 @@ class CustomerRequirement(models.Model):
     lastExperience = models.IntegerField()
     fullExperience = models.IntegerField()
     salary = models.IntegerField()
+
+    def __str__(self):
+        return '%d %d %d %d %d %d %d' % (self.documents, self.age, self.manAgeAtRepayment, self.femaleAgeAtRepayment, self.lastExperience, self.fullExperience, self. salary)
 
 
 class Proposal(models.Model):
