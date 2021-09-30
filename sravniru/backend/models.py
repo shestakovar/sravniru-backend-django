@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from .managers import ProposalManager
 
 
 class CreditAmount(models.Model):
@@ -77,3 +78,4 @@ class Proposal(models.Model):
     customerRequirements = models.ForeignKey(
         CustomerRequirement, on_delete=models.PROTECT)
     rate = models.OneToOneField(Rate, on_delete=models.PROTECT)
+    objects = ProposalManager.as_manager()
