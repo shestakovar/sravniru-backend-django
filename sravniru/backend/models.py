@@ -9,8 +9,8 @@ class CreditAmount(models.Model):
 
 
 class InitialAmount(models.Model):
-    _from = models.IntegerField(db_column='from')
-    to = models.IntegerField(blank=True, null=True)
+    _from = models.DecimalField(db_column='from', max_digits=5, decimal_places=2)
+    to = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2)
 
 
 class Rate(models.Model):
@@ -79,3 +79,6 @@ class Proposal(models.Model):
         CustomerRequirement, on_delete=models.PROTECT)
     rate = models.OneToOneField(Rate, on_delete=models.PROTECT)
     objects = ProposalManager.as_manager()
+
+    def __str__(self):
+        return '%d %s' % (self.id, self.name)

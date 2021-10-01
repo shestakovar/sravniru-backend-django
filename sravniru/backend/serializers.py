@@ -30,7 +30,7 @@ class CreditAmountSerializer(FixNameIntSerializer):
         exclude = ('id', )
 
 
-class InitialAmountSerializer(FixNameIntSerializer):
+class InitialAmountSerializer(FixNameFloatSerializer):
     class Meta:
         model = InitialAmount
         exclude = ('id', )
